@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-//@EnableRabbit
+@EnableRabbit
 @SpringBootApplication(scanBasePackages = "br.com.meta")
 @EnableJpaRepositories(basePackages = "br.com.meta.repositories")
 @EntityScan(basePackages = "br.com.meta.models")
