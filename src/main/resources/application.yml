@@ -2,5 +2,17 @@ server:
   port: 9090
 spring:
   application:
-    name: "mensageria"
-
+    name: "menssageria"
+  datasource:
+    password: 1234567
+    url: jdbc:postgresql://localhost:5432/accessControl
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: true
