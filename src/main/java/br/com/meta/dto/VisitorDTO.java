@@ -1,10 +1,12 @@
 package br.com.meta.dto;
 
 import br.com.meta.models.Visitor;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.ALWAYS)
 public class VisitorDTO implements Serializable {
 
     @Serial

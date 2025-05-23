@@ -14,10 +14,15 @@ public class ConsumeMessageService {
     private VisitorService service;
 
     @RabbitListener(queues = {"crud-request-queue"})
-    public void consumeMessage(String messageBody) {
+    public void consumeMessage(String messageBody) throws IllegalArgumentException{
 
         Gson gson = new Gson();
         VisitorDTO visitorDTO = gson.fromJson(messageBody, VisitorDTO.class);
+
+        if(visitorDTO.getName().trim().isEmpty()){
+            throw new IllegalArgumentException("Nome não pode ser nulo.");
+        }
+
         Visitor visitor = new Visitor(visitorDTO.getId(), visitorDTO.getName(), visitorDTO.getDescription());
         service.save(visitor);
     }
