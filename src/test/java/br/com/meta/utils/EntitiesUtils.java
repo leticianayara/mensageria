@@ -5,6 +5,10 @@ import br.com.meta.models.Visitor;
 
 public class EntitiesUtils {
 
+    public static Visitor criar(){
+        return new Visitor("5f1fc4f5-17cf-4854-bbb5-e2872e3fc39a", "teste 1", "rfdsfmdfmsasd" );
+    }
+
     public static VisitorDTO criarDTO(){
         VisitorDTO vDTO = new VisitorDTO();
         vDTO.setId("5f1fc4f5-17cf-4854-bbb5-e2872e3fc39a");
