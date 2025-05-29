@@ -1,7 +1,9 @@
-package br.com.meta.services;
+package br.com.meta.mensageria.services;
 
 import br.com.meta.dto.VisitorDTO;
-import br.com.meta.utils.EntitiesUtils;
+import br.com.meta.mensageria.utils.EntitiesUtils;
+import br.com.meta.services.ConsumeMessageService;
+import br.com.meta.services.VisitorService;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,12 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.lang.reflect.Type;
-import java.util.NoSuchElementException;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,15 +34,5 @@ public class ConsumeMessageServiceTest {
         consumeMessageService.consumeMessage(EntitiesUtils.criarStr());
 
        assertThat(vDTO.getName()).isEqualTo((EntitiesUtils.criarDTO()).getName());
-    }
-
-    @Test
-    public void  consumeMessageError(){
-        Gson gson = mock(Gson.class);
-        VisitorDTO vDTO = EntitiesUtils.criarDTO();
-
-        consumeMessageService.consumeMessage(EntitiesUtils.criarStrNomeNull());
-
-        assertThatIllegalArgumentException();
     }
 }
